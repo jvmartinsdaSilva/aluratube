@@ -7,8 +7,11 @@ export const CSSReset = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+
+
   body {
     font-family: sans-serif;
+
   }
   /* NextJS */
   html {

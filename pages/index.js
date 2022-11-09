@@ -2,7 +2,9 @@ import config from "../config.json";
 import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu";
+import { StyledBanner } from "../src/components/StyledBanner";
 import { StyledTimeline } from "../src/components/StyledTimeline"
+import { StyledFavorites } from "../src/components/StyledFavorites";
 
 function HomePage() {
     
@@ -13,12 +15,16 @@ function HomePage() {
 
         <>
             <CSSReset />
-            <div>
+            <div >
                 <Menu />
+                <Banner />
                 <Header />
                 <Timeline playlists={config.playlists}>
                     Conteudo    
-                </Timeline>  
+                </Timeline>
+                <Youtubers Favorites={config.Favorites}>
+                       
+                </Youtubers>  
             </div>
 
         </>
@@ -71,6 +77,20 @@ function Header() {
     )
 }
 
+function Banner() {
+    return(
+        <StyledBanner>            
+            <section>
+                <div>
+                    <img src={config.banner}/>
+                </div>
+            </section>
+                      
+        </StyledBanner>
+    )
+}
+
+
 function Timeline(props) {
     //console.log('Dentro do componente', props.playlists)
     const playlistsNames = Object.keys(props.playlists)
@@ -82,10 +102,10 @@ function Timeline(props) {
         <StyledTimeline>
             {playlistsNames.map((playlistsName) =>  {
                 const videos = props.playlists[playlistsName]
-                console.log(videos)
+                // console.log(videos)
                 return (
-                    <section>
-                        <h2>{playlistsName}</h2>
+                    <section >
+                        <h2 >{playlistsName}</h2>
                         <div>
                             {videos.map((video) => {
                                 return(
@@ -103,3 +123,24 @@ function Timeline(props) {
     )
 }
 
+
+function Youtubers (props) {
+    const Youtubers = props.Favorites
+
+    return(
+        <StyledFavorites>
+            <h2>Criadores</h2>
+            {Youtubers.map((youtuber) => {
+                return(
+
+                    <div>
+                        <a href={youtuber.url}>
+                            <img src={youtuber.img} />
+                            <h3>{youtuber.nome}</h3>
+                        </a>
+                    </div>
+                )
+            })}
+        </StyledFavorites>        
+    )
+}
