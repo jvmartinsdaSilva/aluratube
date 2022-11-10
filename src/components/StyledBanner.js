@@ -8,7 +8,6 @@ import styled from "styled-components";
     img{ 
         width: 100vw;
         height: 300px;
-        background-position: center center;
     }
     
 `
