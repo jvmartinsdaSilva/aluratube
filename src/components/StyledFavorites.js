@@ -12,12 +12,12 @@ export const StyledFavorites = styled.div`
     
     img{
         border-radius: 50%;
-        border: 2px solid black;
+        border: 2px solid ${({theme}) => theme.borderBase};
         padding: 1px;
     }
 
     a{
-        color: black;
+        color: ${({theme}) => theme.textColorBase};
     }
 
     h2{

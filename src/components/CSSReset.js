@@ -6,11 +6,14 @@ export const CSSReset = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
   }
 
 
   body {
     font-family: sans-serif;
+    background-color: ${({theme}) => theme.backgroundBase};
+    color: ${({ theme }) => theme.textColorBase};
 
   }
   /* NextJS */
@@ -39,6 +42,11 @@ export const CSSReset = createGlobalStyle`
     }
   }
   .userInfo{
-    margin-top: 50px;
+
+    background-color: ${({theme}) => theme.backgroundLevel1};
+    img{
+      border: 2px solid ${({theme}) => theme.borderBase};
+      padding: 1px;
+    }
   }
 `;
